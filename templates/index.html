@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            let nombre = localStorage.getItem('nombre');
+
+            document.write('nombre ', nombre);
+            document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('#form').onsubmit = function() {
+            const name = document.querySelector('#nombre').value;
+            document.write('hola ', name);
+            localStorage.setItem('nombre', name);
+
+              }
+            });
+        </script>
+
+        <title>Mi pagina WEB</title>
+    </head>
+    <body>
+        <form id="form" action="{{ url_for('chat') }}" method= "POST">
+            <input id="nombre" autocomplete="off" autofocus placeholder="ingrese nombre" type="text">
+            <input type="submit">
+        </form>
+        
+    </body>
+</html>
